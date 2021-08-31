@@ -1,17 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar'
 
 //ejemplo
-const Titulo = () => {
-  return <h1>Hola</h1>
-}
+
 
 function App() {
    
   return (
     <div className="App">
-      <header className="App-header">
-        <Titulo/>
+      <header>
+        <NavBar/>
         <img src={logo} className="App-logo" alt="logo" />
         
       </header>
