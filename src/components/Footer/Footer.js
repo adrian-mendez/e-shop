@@ -10,7 +10,7 @@ const Footer = () => {
             
             <li className="nav-item"><a href="#" className="nav-link px-2 text-muted">Acerca de Nosotros</a></li>
           </ul>
-          <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+          <p className="text-center text-muted">&copy; 2021 Company, Inc</p>
         </footer>
       </div>
       

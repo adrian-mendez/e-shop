@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
 import CartWidget from  './components/CartWidget/CartWidget';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+ 
 
 //ejemplo
 
@@ -22,6 +23,8 @@ const App = () => {
         
       </header>
       <ItemListContainer/>
+      
+       
       <Footer/>
     </div>
   );
