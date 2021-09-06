@@ -1,19 +1,28 @@
+ 
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
+import CartWidget from  './components/CartWidget/CartWidget';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 //ejemplo
 
 
-function App() {
-   
+const App = () => {
+  
   return (
     <div className="App">
       <header>
-        <NavBar/>
-        <img src={logo} className="App-logo" alt="logo" />
+        <NavBar>
+          <CartWidget/>
+        </NavBar>
+
+      
         
       </header>
+      <ItemListContainer/>
+      <Footer/>
     </div>
   );
 }
