@@ -2,10 +2,10 @@ import { useState } from "react";
 import "./ItemCount.css";
 
 const ItemCount = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   const substract = () => {
-      if(count <= 0) {
+      if(count <= 1) {
           console.log('nada')
       } else {
           setCount(count - 1)

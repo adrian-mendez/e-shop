@@ -3,13 +3,13 @@ import CartWidget from '../CartWidget/CartWidget';
 
 
 const NavBar = () => {
-    console.log('hola')
+    
   return <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand color-red" href="#">
+        <span className="navbar-brand color-red">
           CARIÑOSOS
-        </a>
+        </span>
         <button
           className="navbar-toggler"
           type="button"
@@ -24,24 +24,24 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link bg--red" aria-current="page" href="#">
+              <span className="nav-link bg--red">
                 BB NIÑAS
-              </a>
+              </span>
             </li>
             <li className="nav-item">
-              <a className="nav-link bg--red" href="#">
+              <span className="nav-link bg--red">
                 BB NIÑOS
-              </a>
+              </span>
             </li>
             <li className="nav-item">
-              <a className="nav-link bg--red" href="#">
+              <span className="nav-link bg--red">
                 NIÑAS
-              </a>
+              </span>
             </li>
             <li className="nav-item">
-              <a className="nav-link bg--red" href="#">
+              <span className="nav-link bg--red">
                 NIÑOS
-              </a>
+              </span>
             </li>
             <CartWidget/>
           </ul>
