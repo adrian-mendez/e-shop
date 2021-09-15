@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = () => {
+
+const ItemCount = ({stock}) => {
   const [count, setCount] = useState(1);
 
   const substract = () => {
@@ -12,12 +13,18 @@ const ItemCount = () => {
       }
   }
 
+  const sumar = () => {
+    if(count < stock) {
+      setCount(count + 1)
+    } 
+  }
+
   return (
     <>
       <div className="ItemCount">
         <button className="buttonCart" onClick={substract}>-</button>
         <p>{count}</p>
-        <button className="buttonCart" onClick={() => setCount(count + 1)}>+</button>
+        <button className="buttonCart" onClick={sumar}>+</button>
       </div>
     </>
   );
