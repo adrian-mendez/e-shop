@@ -20,7 +20,7 @@ const App = () => {
         </NavBar>
        
       </header>
-      <ItemListContainer titulo="Nuestros productos"/>
+      <ItemListContainer/>
       
        
       <Footer/>

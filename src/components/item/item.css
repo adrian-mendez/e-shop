@@ -1,0 +1,9 @@
+.card {
+    margin: 10px 10px;
+    
+}
+.card-img-top {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}

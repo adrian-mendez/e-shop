@@ -33,16 +33,8 @@ const NavBar = () => {
                 BB NIÑOS
               </span>
             </li>
-            <li className="nav-item">
-              <span className="nav-link bg--red">
-                NIÑAS
-              </span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link bg--red">
-                NIÑOS
-              </span>
-            </li>
+           
+            
             <CartWidget/>
           </ul>
         </div>
