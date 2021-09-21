@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-import './ItemListContainer.css'
 
-import ItemList from '../ItemList/itemList';
+import ItemList from '../components/ItemList/itemList';
 const getProducts = () => {
     return new Promise((resolve, reject) => {
         const ropa = [
