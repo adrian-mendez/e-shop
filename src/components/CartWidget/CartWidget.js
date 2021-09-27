@@ -1,13 +1,12 @@
 import './CartWidget.css'
-
-const CartWidget = () => {
-    return (
-        <li className="nav-item">
-        <span className="cart--number">0</span>
-        <i className="fas fa-shopping-bag"></i>
-        
-      </li>
-    )
+const CartWidget = (props) => {
+    return(
+        <button className="Button" >
+           <i className="fas fa-shopping-bag margin"></i>
+            {props.quantity}
+        </button>
+  
+    );
 }
 
-export default CartWidget;
+export default CartWidget

@@ -1,46 +1,61 @@
- 
-
-import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer';
-import CartWidget from  './components/CartWidget/CartWidget';
-
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './views/Home';
-import Nenes from './views/Nenes';
-import Nenas from './views/Nenas';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-
-//ejemplo
-
+import { useState, useEffect } from 'react'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import NavBar from './components/NavBar/NavBar'
+import Cart from './components/Cart/Cart'
+import Notification from './components/Notification/Notification'
+import Login from './components/Login/Login'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import './App.css'
+import { getCategories } from './products'
+import { NotificationContextProvider } from './context/NotificationContext'
+import Footer from './Footer/Footer'
+import Nenes from './components/view/Nenes'
+import Nenas from './components/view/Nenas'
 
 const App = () => {
-  
+  const [cartProducts, setCartProduct] = useState([])
+  const [user, setUser] = useState(undefined)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setUser('sebastian')
+    }, 5000)
+  }, [])
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavBar>
-          <CartWidget/>
-        </NavBar>
-       <Switch>
-      <Route exact path="/">
-      <Home/>
-      </Route>
-      <Route path="/nenes">
-      <Nenes/>
-      </Route>
-      
-      <Route path="/nenas">
-      <Nenas/>
-      </Route>
-      <Route path="/producto/:id">
-        <ItemDetailContainer/>
-      </Route>
-      </Switch>
-      <Footer/>
-      </BrowserRouter>
+      <NotificationContextProvider>
+        <BrowserRouter>
+          <NavBar categories={getCategories()} cartProducts={cartProducts} />
+          <Notification />
+          <Switch>
+            <Route exact path='/'>
+              <ItemListContainer />
+            </Route>
+            <Route path="/nenes">
+              <Nenes />
+            </Route>
+            <Route path="/nenas">
+              <Nenas />
+            </Route>
+            <Route path='/item/:itemid'>
+              <ItemDetailContainer productsAdded={cartProducts} addProdFunction={setCartProduct} />
+            </Route>
+            <PrivateRoute path='/cart' user={user}>
+              <Cart productsAdded={cartProducts} addProdFunction={setCartProduct} />
+            </PrivateRoute>
+            <Route path='/login'>
+              <Login />
+            </Route>
+          </Switch>
+          <Footer />
+        </BrowserRouter>
+
+      </NotificationContextProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

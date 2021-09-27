@@ -1,22 +1,28 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import './Item.css'
 
-import './item.css'
-const Item = ({ item }) => {
+const Item = ({ product }) => {
+  return (
+    <div className="card" style={{ width: "18rem" }}>
 
-    if (!item) {
-        return <h1>Cargando...</h1>
-    }
+      <img src={product.img} alt={product.name} className="card-img-top" />
+      <div className="card-body">
 
-    return (
-        <div className="card" style={{width: "18rem"}}>
-            <img src={item?.pictureUrl} className="card-img-top"/>
-            <div className ="card-body">
-            <h5 className ="card-title">{item?.title}</h5>
-            <p className ="card-text">Precio: <strong>${item?.price}</strong></p>
-            <NavLink to={`/producto/${item.id}`} activeClassName="NavLink" className ="btn btn-primary">Ver detalles</NavLink>
-            </div>
-        </div>
-    )
+        <h5 className="card-title">{product.name}</h5>
+
+        
+        <p className="card-text">
+        <strong>{`Precio: ${product.price} `}</strong>
+        </p>
+        {product.quantity &&
+          <h6 className="card-text">
+            {`Cantidad a comprar: ${product.quantity} `}
+          </h6>
+        }
+        {!product.quantity && <Link to={`/item/${product.id}`} className="btn btn-primary">Comprar</Link>}
+      
+      </div>
+    </div>
+  )
 }
-
-export default Item;
+export default Item
