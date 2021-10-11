@@ -12,7 +12,7 @@ const Item = ({ product }) => {
 
         
         <p className="card-text">
-        <strong>{`Precio: ${product.price} `}</strong>
+        <strong>{`Precio: $ ${product.price} `}</strong>
         </p>
         {product.quantity &&
           <h6 className="card-text">

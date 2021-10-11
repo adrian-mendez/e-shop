@@ -22,7 +22,7 @@ const ItemDetail = ({ product, productsAdded, addProdFunction }) => {
                         <h3 className="card-title">{product.name}</h3>
                         <p className="card-text">{product.description}</p>
                         
-                        <h5 className="card-text">{`Precio: ${product.price} `}</h5>
+                        <h5 className="card-text">{`Precio: $ ${product.price} `}</h5>
                         <p className="card-text">{`Stock: ${product.stock} `} </p>
                        
 
