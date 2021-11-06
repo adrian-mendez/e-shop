@@ -14,17 +14,7 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        /*
-        const list = getProducts(categoryid)
-        list.then(list => {
-            setProducts(list)
-            setLoading(false)
-        })
-
-        return (() => {
-            setProducts([])
-            setLoading(true)
-        })*/
+        
         if(!categoryid) {
             setLoading(true)
             getDocs(collection(db, 'items')).then((querySnapshot) => {
@@ -50,6 +40,11 @@ const ItemListContainer = () => {
                 setLoading(false)
             })
         }
+
+        return (() => {
+            setLoading(true)
+            setProducts([])
+        })
 
     }, [categoryid])
 

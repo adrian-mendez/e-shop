@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useContext } from 'react'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import NavBar from './components/NavBar/NavBar'
@@ -10,25 +10,24 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css'
 import { getCategories } from './products'
 import { NotificationContextProvider } from './context/NotificationContext'
+import { CartContextProvider } from './context/CartContext'
 import Footer from './Footer/Footer'
 import Nenes from './components/view/Nenes'
 import Nenas from './components/view/Nenas'
+import UserContext from './context/UserContext'
 
 const App = () => {
-  const [cartProducts, setCartProduct] = useState([])
-  const [user, setUser] = useState(undefined)
+  
+ 
 
-  useEffect(() => {
-    setTimeout(() => {
-      setUser('sebastian')
-    }, 5000)
-  }, [])
+  const { user } = useContext(UserContext)
 
   return (
     <div className="App">
       <NotificationContextProvider>
+        <CartContextProvider>
         <BrowserRouter>
-          <NavBar categories={getCategories()} cartProducts={cartProducts} />
+          <NavBar categories={getCategories()} />
           <Notification />
           <Switch>
             <Route exact path='/'>
@@ -41,10 +40,10 @@ const App = () => {
               <Nenas />
             </Route>
             <Route path='/item/:itemid'>
-              <ItemDetailContainer productsAdded={cartProducts} addProdFunction={setCartProduct} />
+              <ItemDetailContainer />
             </Route>
             <PrivateRoute path='/cart' user={user}>
-              <Cart productsAdded={cartProducts} addProdFunction={setCartProduct} />
+              <Cart />
             </PrivateRoute>
             <Route path='/login'>
               <Login />
@@ -52,7 +51,7 @@ const App = () => {
           </Switch>
           <Footer />
         </BrowserRouter>
-
+        </CartContextProvider>
       </NotificationContextProvider>
     </div>
   )
